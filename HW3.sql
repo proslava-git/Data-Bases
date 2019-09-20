@@ -160,5 +160,14 @@ CREATE TABLE `likes_photos` (
 
 );
 
--- Используя сервис http://filldb.info или другой по вашему желанию, сгенерировать тестовые данные для всех таблиц, учитывая логику связей. Для всех таблиц, где это имеет смысл, создать не менее 100 строк. Создать локально БД vk и загрузить в неё тестовые данные.
+
+DROP TABLE IF EXISTS `likes_users`;
+CREATE TABLE `likes_users` (
+	id SERIAL PRIMARY KEY,
+    user_id BIGINT UNSIGNED NOT NULL,
+    created_at DATETIME DEFAULT NOW(),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+	-- Используя сервис http://filldb.info или другой по вашему желанию, сгенерировать тестовые данные для всех таблиц, учитывая логику связей. Для всех таблиц, где это имеет смысл, создать не менее 100 строк. Создать локально БД vk и загрузить в неё тестовые данные.
 
